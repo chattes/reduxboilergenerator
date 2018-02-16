@@ -345,17 +345,14 @@ if(fs.existsSync(reducerFilePath)){
   console.log('Appending New Reducer to Reducer File...')
   fs.readFile(reducerFilePath, (err, data) => {
     if(err) throw err
-    const existingReducerCode = data.toString()
-    const reducerCode = `
-    ${existingReducerCode}
-    
-    //Reducer for ${actionName}
-    ${reducerCommon({
-      reducerName,
-      actionName
-    })}
-    `
-    fsPath.writeFile(reducerFilePath, reducerCode,err => { 
+
+   let delimiter = data.toString().indexOf('default:')
+   let moddedEntry = [
+     data.toString().slice(0, delimiter),
+     reducerCommon({reducerName, actionName}),
+     data.toString().slice(delimiter)
+   ].join("")
+   fsPath.writeFile(reducerFilePath, moddedEntry,err => { 
       if(err) throw err
       console.log('Reducer Generators Done...')
     })    
@@ -364,10 +361,25 @@ if(fs.existsSync(reducerFilePath)){
 else {
   const reducerNewCode = `
   import { ${reducerName.toLowerCase()}ActionType as Actions } from '../../Actions/${reducerName.toLowerCase()}ActionType'  
+
+  export const ${reducerName.toLowerCase()}Reducers = (
+    state = {},  //Some Default State Needs to be passed here
+    action
+  ) => {
+    let newState = null
+    let payload = null
+
+    switch(action.type) {
+
   ${reducerCommon({
     reducerName,
     actionName
   })}
+ 
+      default:
+      return state
+    }
+  }
   `
   fsPath.writeFile(reducerFilePath, reducerNewCode,err => { 
     if(err) throw err
@@ -379,16 +391,7 @@ else {
 
 const reducerCommon = ({reducerName, actionName}) => {
 return `
-
-  export const ${reducerName.toLowerCase()}Reducers = (
-    state = {},  //Some Default State Needs to be passed here
-    action
-  ) => {
-    let newState = null
-    let payload = null
-
-    switch(action.type) {
-      case Actions.${actionName}_REQ:
+     case Actions.${actionName}_REQ:
         newState = state
         payload = action.payload
         // Serializer transform state -> newState
@@ -407,10 +410,6 @@ return `
         // Serializer transform state -> newState
 
         return newState
- 
-      default:
-      return state
-    }
-  }
+
 `
 } 

@@ -10,5 +10,10 @@
     "react-redux"
   ],
   "author": "Sourav Chatterjee",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fs-path": "0.0.23",
+    "promptly": "^2.2.0",
+    "ramda": "^0.25.0"
+  }
 }
