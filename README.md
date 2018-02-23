@@ -1,4 +1,4 @@
-##About
+## About
 
 
 If you have used Redux in your Project, you must be aware that common convention is
@@ -20,12 +20,12 @@ and get the Data.
 **reduxboilergenerator** provides you with a Command Line utility to generate this and arranges
 in the following file structure.
 
---Actions
-  --<actionname>Actions.js
-  --<actionname>ActionType.js
---reducers
-  --<actionname>Reducers
-    --index.js
+* --Actions
+*  --<actionname>Actions.js
+*  --<actionname>ActionType.js
+* --reducers
+*  --<actionname>Reducers
+*    --index.js
 
 It will generate the common boiler plate code for you and then you just fill up the rest according to your 
 requirements.
@@ -33,9 +33,9 @@ requirements.
 Currently the boiler plate expects `jquery` and makes an `xhr` request and does not use `Fetch`.
 Feel free to submit a pull request or raise Issues, if you see any shortcomings!
 
-###HAPPY BOILING!!
+### HAPPY BOILING!!
 
-#Example
+# Example
 
 ```
 $ npm install -g reduxboilergen
