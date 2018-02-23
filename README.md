@@ -29,7 +29,7 @@ in the following file structure.
   --index.js
 ```
 
-http://gph.is/2ENL810
+
 
 It will generate the common boiler plate code for you and then you just fill up the rest according to your 
 requirements.
