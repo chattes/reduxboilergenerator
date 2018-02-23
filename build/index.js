@@ -26,7 +26,7 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
   reducerName = value.toLowerCase();
   promptly.prompt('Action Name: ').then(function (action) {
     actionName = action.toUpperCase();
-    promptly.prompt('Parameters for Action(Comma separated values):').then(function (values) {
+    promptly.prompt('Additonal Parameters for Action(Comma separated values):').then(function (values) {
       parameters = values.split(',').map(function (value) {
         return value.trim();
       });
