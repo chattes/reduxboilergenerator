@@ -21,7 +21,7 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
   promptly.prompt('Action Name: ')
   .then( action => {
     actionName = action.toUpperCase()
-    promptly.prompt('Parameters for Action(Comma separated values):')
+    promptly.prompt('Additonal Parameters for Action(Comma separated values):')
     .then(values => {
       parameters = values.split(',').map(value => value.trim())
       promptly.prompt('CRUD action(Enter C, R, U or D):')
