@@ -139,13 +139,13 @@ const AddActionFile = () => {
       apiCode = `
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
-        storage,
+        authKey,
+        isAuthenticated
         link,
         ${[...parameters]},
         createData}) => (dispatch, getState) => {
-        dispatch(fetchToken(storage))
         let state = getState()
-        if (state.get('loginDetails').get('isUserAuthenticated')) {
+        if (isAuthenticated) {
           dispatch(${actionNameL}Req({${[...parameters]}}))
           //FILL ACTUAL DATA ---HERE!!!!
           let data = null
@@ -154,7 +154,7 @@ const AddActionFile = () => {
             method: 'POST',
             url: link,
             headers: {
-              Authorization: state.get('loginDetails').get('auth_token')
+              Authorization: authKey 
             },
             data: data,
             // processData: false,
@@ -162,12 +162,7 @@ const AddActionFile = () => {
             // crossDomain: true,
             // mimeType: 'multipart/form-data',
             success: payload => dispatch(${actionNameL}Res({payload,${[...parameters]}})),
-            error: (error) => {
-              error.status == TOKEN_EXPIRED
-                ? dispatch(initState())
-                : dispatch(${actionNameL}Err({error,${[...parameters]}}))
-              dispatch(recordError(error.status, error.statusText))
-            },
+            error: (error) => dispatch(${actionNameL}Err({error,${[...parameters]}})),
             timeout: TIMEOUT
           })
         } else {
@@ -180,26 +175,22 @@ const AddActionFile = () => {
       apiCode = `
       //API Call for ${actionNameL} --READ
       export const ${actionNameL}API = ({
-        storage,
+        authKey,
+        isAuthenticated
         link,
         ${[...parameters]}}) => (dispatch, getState) => {
         dispatch(fetchToken(storage))
         let state = getState()
-        if (state.get('loginDetails').get('isUserAuthenticated')) {
+        if (isAuthenticated) {
           dispatch(${actionNameL}Req({${[...parameters]}}))
           return $.ajax({
             method: 'GET',
             url: link,
             headers: {
-              Authorization: state.get('loginDetails').get('auth_token')
+              Authorization: authKey 
             },
             success: payload => dispatch(${actionNameL}Res({payload,${[...parameters]}})),
-            error: (error) => {
-              error.status == TOKEN_EXPIRED
-                ? dispatch(initState())
-                : dispatch(${actionNameL}Err({error,${[...parameters]}}))
-              dispatch(recordError(error.status, error.statusText))
-            },
+            error: (error) => dispatch(${actionNameL}Err({error,${[...parameters]}})),
             timeout: TIMEOUT
           })
         } else {
@@ -213,13 +204,14 @@ const AddActionFile = () => {
       apiCode = `
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
-        storage,
+        authKey,
+        isAuthenticated
         link,
         ${[...parameters]},
         updateData}) => (dispatch, getState) => {
         dispatch(fetchToken(storage))
         let state = getState()
-        if (state.get('loginDetails').get('isUserAuthenticated')) {
+        if (isAuthenticated) {
           dispatch(${actionNameL}Req({${[...parameters]}}))
           let data = null
           //FILL API DATA******
@@ -227,7 +219,7 @@ const AddActionFile = () => {
             method: 'PUT',
             url: link,
             headers: {
-              Authorization: state.get('loginDetails').get('auth_token')
+              Authorization: authKey 
             },
             data: data,
             // processData: false,
@@ -235,12 +227,7 @@ const AddActionFile = () => {
             // crossDomain: true,
             // mimeType: 'multipart/form-data',
             success: payload => dispatch(${actionNameL}Res({payload,${[...parameters]}})),
-            error: (error) => {
-              error.status == TOKEN_EXPIRED
-                ? dispatch(initState())
-                : dispatch(${actionNameL}Err({error,${[...parameters]}}))
-              dispatch(recordError(error.status, error.statusText))
-            },
+            error: (error) => dispatch(${actionNameL}Err({error,${[...parameters]}})),
             timeout: TIMEOUT
           })
         } else {
@@ -254,28 +241,24 @@ const AddActionFile = () => {
       apiCode = `
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
-        storage,
+        authKey,
+        isAuthenticated
         link,
         ${[...parameters]}
         }) => (dispatch, getState) => {
         dispatch(fetchToken(storage))
         let state = getState()
-        if (state.get('loginDetails').get('isUserAuthenticated')) {
+        if (isAuthenticated) {
           dispatch(${actionNameL}Req({payload:{},${[...parameters]}}))
           return $.ajax({
             method: 'DELETE',
             url: link,
             headers: {
-              Authorization: state.get('loginDetails').get('auth_token')
+              Authorization: authKey 
             },
            success: payload => dispatch(${actionNameL}Res({payload,${[...parameters]}})),
-            error: (error) => {
-              error.status == TOKEN_EXPIRED
-                ? dispatch(initState())
-                : dispatch(${actionNameL}Err({error}))
-              dispatch(recordError(error.status, error.statusText))
-            },
-            timeout: TIMEOUT
+           error: (error) => dispatch(${actionNameL}Err({error})),
+           timeout: TIMEOUT
           })
         } else {
           return this
