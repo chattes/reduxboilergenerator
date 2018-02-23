@@ -140,7 +140,7 @@ const AddActionFile = () => {
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
         authKey,
-        isAuthenticated
+        isAuthenticated,
         link,
         ${[...parameters]},
         createData}) => (dispatch, getState) => {
@@ -176,7 +176,7 @@ const AddActionFile = () => {
       //API Call for ${actionNameL} --READ
       export const ${actionNameL}API = ({
         authKey,
-        isAuthenticated
+        isAuthenticated,
         link,
         ${[...parameters]}}) => (dispatch, getState) => {
         dispatch(fetchToken(storage))
@@ -205,7 +205,7 @@ const AddActionFile = () => {
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
         authKey,
-        isAuthenticated
+        isAuthenticated,
         link,
         ${[...parameters]},
         updateData}) => (dispatch, getState) => {
@@ -242,7 +242,7 @@ const AddActionFile = () => {
       //API Call for ${actionNameL}
       export const ${actionNameL}API = ({
         authKey,
-        isAuthenticated
+        isAuthenticated,
         link,
         ${[...parameters]}
         }) => (dispatch, getState) => {
@@ -311,6 +311,9 @@ const AddActionFile = () => {
    const actionCreatorCode = `
     import $ from 'jquery'
     import { ${reducerName.toLowerCase()}ActionType } from './${reducerName.toLowerCase()}ActionType'
+    
+    
+    const TIMEOUT = 5000
 
     export const ${actionNameCC}Req = ({${[...parameters]}}) => ({
       type: ${reducerName.toLowerCase()}ActionType.${actionName}_REQ,
