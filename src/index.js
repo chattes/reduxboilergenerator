@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Generates React Redux- Boiler Plate for API calls using jquery AJAX
 const fs = require("fs")
 const path = require("path")
@@ -29,7 +30,7 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
        if(possibleActions.findIndex((action) => action == value) < 0){
          throw 'Invalid Action Supplied'
        }
-       ProcessReducer()        
+       StartBoiler()        
       })
     }
 
@@ -38,7 +39,19 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
 
 })
 
-const ProcessReducer = () => {
+const StartBoiler = () => {
+
+  ProcessReducer({
+    actionName,
+    reducerName
+  })
+
+}
+
+const ProcessReducer = ({
+  actionName,
+  reducerName
+}) => {
 
   // Adds Action files and Directory Structure
  console.log('Start...')
@@ -97,7 +110,7 @@ const addActionTypeFile = (err, data, path) => {
     })
 }
 // Utility - Convert Under_score to camelCase
-const convCamelCase = actionName => {
+export const convCamelCase = actionName => {
   return actionName
     .split("_")
     .map(function(word, index) {
@@ -344,7 +357,7 @@ const AddActionFile = () => {
 const addReducerFile = () => {
 const reducerFilePath = path.join(
   process.cwd(),
-  'reducers',
+  'Reducers',
   `${reducerName.toLowerCase()}Reducers`,
   'index.js'
 )

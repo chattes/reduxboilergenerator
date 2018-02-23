@@ -1,4 +1,9 @@
+#!/usr/bin/env node
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -32,13 +37,24 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
         }) < 0) {
           throw 'Invalid Action Supplied';
         }
-        ProcessReducer();
+        StartBoiler();
       });
     });
   });
 });
 
-var ProcessReducer = function ProcessReducer() {
+var StartBoiler = function StartBoiler() {
+
+  ProcessReducer({
+    actionName: actionName,
+    reducerName: reducerName
+  });
+};
+
+var ProcessReducer = function ProcessReducer(_ref) {
+  var actionName = _ref.actionName,
+      reducerName = _ref.reducerName;
+
 
   // Adds Action files and Directory Structure
   console.log('Start...');
@@ -77,7 +93,7 @@ var addActionTypeFile = function addActionTypeFile(err, data, path) {
   });
 };
 // Utility - Convert Under_score to camelCase
-var convCamelCase = function convCamelCase(actionName) {
+var convCamelCase = exports.convCamelCase = function convCamelCase(actionName) {
   return actionName.split("_").map(function (word, index) {
     // If it is the first word make sure to lowercase all the chars.
     if (index == 0) {
@@ -160,9 +176,9 @@ var addReducerFile = function addReducerFile() {
   }
 };
 
-var reducerCommon = function reducerCommon(_ref) {
-  var reducerName = _ref.reducerName,
-      actionName = _ref.actionName;
+var reducerCommon = function reducerCommon(_ref2) {
+  var reducerName = _ref2.reducerName,
+      actionName = _ref2.actionName;
 
   return "\n     case Actions." + actionName + "_REQ:\n        newState = state\n        payload = action.payload\n        // Serializer transform state -> newState\n\n        return newState\n      case Actions." + actionName + "_RES:\n        newState = state\n        payload = action.payload\n        // Serializer transform state -> newState\n\n        return newState\n \n      case Actions." + actionName + "_ERR:\n        newState = state\n        payload = action.payload\n        // Serializer transform state -> newState\n\n        return newState\n\n";
 };
