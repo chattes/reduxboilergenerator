@@ -1,12 +1,16 @@
+// Generates React Redux- Boiler Plate for API calls using jquery AJAX
 const fs = require("fs")
 const path = require("path")
 const argv = process.argv.slice(2)
 const promptly = require('promptly')
 const fsPath  = require('fs-path')
+const possibleActions = ['C', 'R', 'U', 'D']
+const R = require('ramda')
 let reducerName = null
 let actionName = null
 let parameters = []
 let crudOp = null
+
 
 promptly.prompt('Reducer For?(Enter The Top level Component):', {
   default: 'AppReducer'
@@ -22,6 +26,9 @@ promptly.prompt('Reducer For?(Enter The Top level Component):', {
       promptly.prompt('CRUD action(Enter C, R, U or D):')
       .then(value => {
        crudOp = value.toUpperCase()
+       if(possibleActions.findIndex((action) => action == value) < 0){
+         throw 'Invalid Action Supplied'
+       }
        ProcessReducer()        
       })
     }
@@ -39,7 +46,7 @@ const ProcessReducer = () => {
  let actionTypeRes = `${actionName}_RES`
  let actionTypeErr = `${actionName}_ERR`
  let actionTypePath = path.join(
-   __dirname,
+   process.cwd(),
    'Actions',
    `${reducerName.toLowerCase()}ActionType.js`
  ) 
@@ -105,8 +112,8 @@ const convCamelCase = actionName => {
 }
 
 const AddActionFile = () => {
-  actionCreatorPath = path.join(
-    __dirname,
+  let actionCreatorPath = path.join(
+    process.cwd(),
     'Actions',
     `${reducerName.toLowerCase()}Actions.js`
   )
@@ -336,7 +343,7 @@ const AddActionFile = () => {
 
 const addReducerFile = () => {
 const reducerFilePath = path.join(
-  __dirname,
+  process.cwd(),
   'reducers',
   `${reducerName.toLowerCase()}Reducers`,
   'index.js'
