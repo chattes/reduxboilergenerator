@@ -14,7 +14,7 @@ let crudOp = null
 
 
 promptly.prompt('Reducer For?(Enter The Top level Component):', {
-  default: 'AppReducer'
+  default: 'MyAppReducer'
 })
 .then(value => {
   reducerName = value.toLowerCase()

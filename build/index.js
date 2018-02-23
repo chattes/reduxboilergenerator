@@ -21,7 +21,7 @@ var parameters = [];
 var crudOp = null;
 
 promptly.prompt('Reducer For?(Enter The Top level Component):', {
-  default: 'AppReducer'
+  default: 'MyAppReducer'
 }).then(function (value) {
   reducerName = value.toLowerCase();
   promptly.prompt('Action Name: ').then(function (action) {
