@@ -11,6 +11,7 @@ var promptly = require('promptly');
 var fsPath = require('fs-path');
 var possibleActions = ['C', 'R', 'U', 'D'];
 var R = require('ramda');
+var prettier = require('prettier');
 var reducerName = null;
 var actionName = null;
 var parameters = [];
@@ -22,16 +23,16 @@ var createActionTypeFile = function createActionTypeFile() {
     fs.readFile((0, _utils.getActionTypePath)({ reducerName: reducerName }), function (err, data) {
       if (err) throw err;
       // Write the Generated File
-      fsPath.writeFile((0, _utils.getActionTypePath)({ reducerName: reducerName }), (0, _utils.GenActionTypeFile)({
+      fsPath.writeFile((0, _utils.getActionTypePath)({ reducerName: reducerName }), prettier.format((0, _utils.GenActionTypeFile)({
         fileContentsRaw: data,
         actionName: actionName
-      }), function (err) {
+      }), { semi: false }), function (err) {
         if (err) throw err;
         console.info('Generated Action type File Succesfully...');
       });
     });
   } else {
-    fsPath.writeFile((0, _utils.getActionTypePath)({ reducerName: reducerName }), (0, _utils.GenActionTypeFile)({ actionName: actionName }), function (err) {
+    fsPath.writeFile((0, _utils.getActionTypePath)({ reducerName: reducerName }), prettier.format((0, _utils.GenActionTypeFile)({ actionName: actionName }), { semi: false }), function (err) {
       if (err) throw err;
       console.info('Generated Action type File Succesfully...');
     });
@@ -44,25 +45,25 @@ var createActionFile = function createActionFile() {
     fs.readFile((0, _utils.GetActionFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), function (err, data) {
       if (err) throw err;
       // Write the Generated File
-      fsPath.writeFile((0, _utils.GetActionFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), (0, _utils.GenActionFileContents)({
+      fsPath.writeFile((0, _utils.GetActionFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), prettier.format((0, _utils.GenActionFileContents)({
         reducerName: reducerName,
         actionName: actionName,
         crudOperation: crudOp,
         parameters: parameters,
         fileContents: data.toString()
-      }), function (err) {
+      }), { semi: false }), function (err) {
         if (err) throw err;
         console.info('Generated Action File Succesfully...');
       });
     });
   } else {
     // Write the Generated File
-    fsPath.writeFile((0, _utils.GetActionFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), (0, _utils.GenActionFileContents)({
+    fsPath.writeFile((0, _utils.GetActionFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), prettier.format((0, _utils.GenActionFileContents)({
       reducerName: reducerName,
       actionName: actionName,
       crudOperation: crudOp,
       parameters: parameters
-    }), function (err) {
+    }), { semi: false }), function (err) {
       if (err) throw err;
       console.info('Generated Action File Succesfully...');
     });
@@ -76,21 +77,21 @@ var createReducerFile = function createReducerFile() {
     fs.readFile((0, _utils.reducerFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), function (err, data) {
       if (err) throw err;
       // Write the Generated File
-      fsPath.writeFile((0, _utils.reducerFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), (0, _utils.genReducerCode)({
+      fsPath.writeFile((0, _utils.reducerFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), prettier.format((0, _utils.genReducerCode)({
         fileContent: data.toString(),
         reducerName: reducerName,
         actionName: actionName
-      }), function (err) {
+      }), { semi: false }), function (err) {
         if (err) throw err;
         console.info('Generated Reducer File Succesfully...');
       });
     });
   } else {
     // Write the Generated File
-    fsPath.writeFile((0, _utils.reducerFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), (0, _utils.genReducerCode)({
+    fsPath.writeFile((0, _utils.reducerFilePath)({ reducerName: reducerName, currentDir: process.cwd() }), prettier.format((0, _utils.genReducerCode)({
       reducerName: reducerName,
       actionName: actionName
-    }), function (err) {
+    }), { semi: false }), function (err) {
       if (err) throw err;
       console.info('Generated Reducer File Succesfully...');
     });

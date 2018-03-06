@@ -43,7 +43,7 @@ var GenActionTypeFile = exports.GenActionTypeFile = function GenActionTypeFile(_
   if (fileContentsRaw) {
     var fileContents = fileContentsRaw.toString();
     var closingBrace = fileContents.indexOf('}');
-    actionTypeFileContents = [fileContents.slice(0, closingBrace), newActionEntry, fileContents.slice(closingBrace)].join("");
+    actionTypeFileContents = [fileContents.slice(0, closingBrace) + ",", newActionEntry, fileContents.slice(closingBrace)].join("");
   } else {
     actionTypeFileContents = "\n    export const " + actionName.toLowerCase() + "ActionTypes = {\n    " + newActionEntry + "\n    }\n    ";
   }
@@ -71,7 +71,8 @@ var GenActionFileContents = exports.GenActionFileContents = function GenActionFi
 
 
   var actionNameL = actionName.toLowerCase();
-  var headerCode = "\n  import $ from 'jquery'\n  import { " + reducerName.toLowerCase() + "ActionType } from './" + reducerName.toLowerCase() + "ActionType'\n  \n  \n  const TIMEOUT = 5000\n\n  export const " + actionNameL + "Req = ({" + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_REQ,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Res = ({payload, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_RES,\n    payload,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Err = ({error, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_ERR,\n    error,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })  \n  ";
+  var headerCode = "\n  import $ from 'jquery'\n  import { " + reducerName.toLowerCase() + "ActionType } from './" + reducerName.toLowerCase() + "ActionType'\n  \n  \n  const TIMEOUT = 5000\n  ";
+  var actionCode = "\n  export const " + actionNameL + "Req = ({" + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_REQ,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Res = ({payload, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_RES,\n    payload,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Err = ({error, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_ERR,\n    error,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })  \n  ";
   var apiCode = "";
   switch (crudOperation) {
     case 'C':
@@ -90,7 +91,7 @@ var GenActionFileContents = exports.GenActionFileContents = function GenActionFi
       apiCode = "";
   }
 
-  var newCode = fileContents ? "\n   " + fileContents + "\n   \n   " + apiCode + "\n    " : "\n   " + headerCode + "\n   \n   " + apiCode + "\n    ";
+  var newCode = fileContents ? "\n   " + fileContents + "\n   " + actionCode + "\n   " + apiCode + "\n    " : "\n   " + headerCode + "\n   " + actionCode + "\n   " + apiCode + "\n    ";
 
   return newCode;
 };

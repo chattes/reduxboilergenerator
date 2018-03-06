@@ -38,6 +38,7 @@
     "babel-preset-latest": "^6.24.1",
     "jest": "^22.4.2",
     "np": "^2.20.1",
+    "prettier": "^1.11.1",
     "watch": "^1.0.1"
   }
 }

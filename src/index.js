@@ -14,6 +14,7 @@ const promptly = require('promptly')
 const fsPath  = require('fs-path')
 const possibleActions = ['C', 'R', 'U', 'D']
 const R = require('ramda')
+const prettier = require('prettier')
 let reducerName = null
 let actionName = null
 let parameters = []
@@ -28,10 +29,13 @@ const createActionTypeFile = () => {
       // Write the Generated File
       fsPath.writeFile(
         getActionTypePath({reducerName}),
+        prettier.format(
         GenActionTypeFile({
           fileContentsRaw: data,
           actionName
         }),
+        {semi: false}
+        ),
         err => {
           if(err) throw err
           console.info('Generated Action type File Succesfully...')
@@ -42,7 +46,7 @@ const createActionTypeFile = () => {
   } else{
       fsPath.writeFile(
         getActionTypePath({reducerName}),
-        GenActionTypeFile({actionName}),
+        prettier.format(GenActionTypeFile({actionName}),{semi: false}),
         err => {
           if(err) throw err
           console.info('Generated Action type File Succesfully...')
@@ -60,13 +64,13 @@ const createActionFile = () => {
       // Write the Generated File
       fsPath.writeFile(
         GetActionFilePath({reducerName, currentDir:process.cwd()}),   
-        GenActionFileContents({
+        prettier.format(GenActionFileContents({
           reducerName,
           actionName,
           crudOperation: crudOp,
           parameters,
           fileContents: data.toString(),
-        }),
+        }), {semi: false}),
         err => {
           if(err) throw err
           console.info('Generated Action File Succesfully...')
@@ -78,12 +82,12 @@ const createActionFile = () => {
       // Write the Generated File
       fsPath.writeFile(
         GetActionFilePath({reducerName, currentDir: process.cwd()}),   
-        GenActionFileContents({
+        prettier.format(GenActionFileContents({
           reducerName,
           actionName,
           crudOperation: crudOp,
           parameters
-        }),
+        }), {semi: false}),
         err => {
           if(err) throw err
           console.info('Generated Action File Succesfully...')
@@ -102,11 +106,11 @@ const createReducerFile = () => {
       // Write the Generated File
       fsPath.writeFile(
         reducerFilePath({reducerName, currentDir: process.cwd()}),   
-        genReducerCode({
+        prettier.format(genReducerCode({
           fileContent: data.toString(),
           reducerName,
           actionName
-        }),
+        }), {semi: false}),
         err => {
           if(err) throw err
           console.info('Generated Reducer File Succesfully...')
@@ -118,10 +122,10 @@ const createReducerFile = () => {
       // Write the Generated File
       fsPath.writeFile(
         reducerFilePath({reducerName, currentDir: process.cwd()}),   
-        genReducerCode({
+        prettier.format(genReducerCode({
           reducerName,
           actionName
-        }),
+        }), {semi: false}),
         err => {
           if(err) throw err
           console.info('Generated Reducer File Succesfully...')

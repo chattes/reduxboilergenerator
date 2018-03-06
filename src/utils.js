@@ -41,7 +41,7 @@ export const GenActionTypeFile = ({fileContentsRaw = null, actionName}) => {
   let fileContents = fileContentsRaw.toString()
   let closingBrace = fileContents.indexOf('}')
    actionTypeFileContents = [
-    fileContents.slice(0, closingBrace),
+    `${fileContents.slice(0, closingBrace)},`,
     newActionEntry,
     fileContents.slice(closingBrace)
   ].join("")
@@ -83,7 +83,8 @@ export const GenActionFileContents = ({
   
   
   const TIMEOUT = 5000
-
+  `
+  let actionCode = `
   export const ${actionNameL }Req = ({${[...parameters]}}) => ({
     type: ${reducerName.toLowerCase()}ActionType.${actionName}_REQ,
     ${[...parameters]}
@@ -239,14 +240,14 @@ export const GenActionFileContents = ({
   let newCode = fileContents ? (
     `
    ${fileContents}
-   
+   ${actionCode}
    ${apiCode}
     `
   ) : (
     
     `
    ${headerCode}
-   
+   ${actionCode}
    ${apiCode}
     `
   )
