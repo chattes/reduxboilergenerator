@@ -1,48 +1,129 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'run',
-1 verbose cli   'release' ]
+1 verbose cli   'publish' ]
 2 info using npm@3.10.8
 3 info using node@v6.9.1
-4 verbose run-script [ 'prerelease', 'release', 'postrelease' ]
-5 info lifecycle reduxboilergen@1.1.0~prerelease: reduxboilergen@1.1.0
-6 silly lifecycle reduxboilergen@1.1.0~prerelease: no script for prerelease, continuing
-7 info lifecycle reduxboilergen@1.1.0~release: reduxboilergen@1.1.0
-8 verbose lifecycle reduxboilergen@1.1.0~release: unsafe-perm in lifecycle true
-9 verbose lifecycle reduxboilergen@1.1.0~release: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;c:\Python27;C:\Users\I055463\Downloads\exe files\geckodriver-v0.13.0-win64\;C:\Python27\Scripts\;C:\Users\I055463\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin\phantomjs.exe;C:\Program Files (x86)\PuTTY\;C:\php-7.1.2-nts-Win32-VC14-x86;C:\Program Files\MongoDB\Server\3.4\bin\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Users\I055463\AppData\Local\Android\sdk;C:\Program Files\Java\jdk1.8.0_121\;C:\Program Files (x86)\vim\vim80;C:\Users\I055463\AppData\Local\Android\sdk\platform-tools;C:\Users\I055463\AppData\Local\Android\sdk\tools;C:\Program Files (x86)\Skype\Phone\;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\I055463\AppData\Local\atom\bin;C:\Users\I055463\Downloads\exe files\cmder_mini;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Users\I055463\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\I055463\AppData\Local\Programs\Python\Python35-32\;C:\Users\I055463\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\I055463\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\Users\I055463\AppData\Roaming\Composer\vendor\bin;C:\Users\I055463\AppData\Local\Microsoft\WindowsApps
-10 verbose lifecycle reduxboilergen@1.1.0~release: CWD: C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator
-11 silly lifecycle reduxboilergen@1.1.0~release: Args: [ '/d /s /c', 'np' ]
-12 silly lifecycle reduxboilergen@1.1.0~release: Returned: code: 1  signal: null
-13 info lifecycle reduxboilergen@1.1.0~release: Failed to exec release script
-14 verbose stack Error: reduxboilergen@1.1.0 release: `np`
-14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:877:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
-15 verbose pkgid reduxboilergen@1.1.0
-16 verbose cwd C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator
-17 error Windows_NT 10.0.14393
-18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "release"
-19 error node v6.9.1
-20 error npm  v3.10.8
-21 error code ELIFECYCLE
-22 error reduxboilergen@1.1.0 release: `np`
-22 error Exit status 1
-23 error Failed at the reduxboilergen@1.1.0 release script 'np'.
-23 error Make sure you have the latest version of node.js and npm installed.
-23 error If you do, this is most likely a problem with the reduxboilergen package,
-23 error not with npm itself.
-23 error Tell the author that this fails on your system:
-23 error     np
-23 error You can get information on how to open an issue for this project with:
-23 error     npm bugs reduxboilergen
-23 error Or if that isn't available, you can get their info via:
-23 error     npm owner ls reduxboilergen
-23 error There is likely additional logging output above.
-24 verbose exit [ 1, true ]
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Sourav Data\\Stuff\\SPROJ\\ReduxBoilerGenerator',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\I055463\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 info lifecycle reduxboilergen@1.1.0~prepublish: reduxboilergen@1.1.0
+11 verbose lifecycle reduxboilergen@1.1.0~prepublish: unsafe-perm in lifecycle true
+12 verbose lifecycle reduxboilergen@1.1.0~prepublish: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;c:\Python27;C:\Users\I055463\Downloads\exe files\geckodriver-v0.13.0-win64\;C:\Python27\Scripts\;C:\Users\I055463\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin\phantomjs.exe;C:\Program Files (x86)\PuTTY\;C:\php-7.1.2-nts-Win32-VC14-x86;C:\Program Files\MongoDB\Server\3.4\bin\;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Users\I055463\AppData\Local\Android\sdk;C:\Program Files\Java\jdk1.8.0_121\;C:\Program Files (x86)\vim\vim80;C:\Users\I055463\AppData\Local\Android\sdk\platform-tools;C:\Users\I055463\AppData\Local\Android\sdk\tools;C:\Program Files (x86)\Skype\Phone\;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Users\I055463\AppData\Local\atom\bin;C:\Users\I055463\Downloads\exe files\cmder_mini;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Users\I055463\AppData\Local\Programs\Python\Python35-32\Scripts\;C:\Users\I055463\AppData\Local\Programs\Python\Python35-32\;C:\Users\I055463\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin;C:\Users\I055463\Downloads\phantomjs-2.1.1-windows\phantomjs-2.1.1-windows\bin;C:\Users\I055463\AppData\Roaming\Composer\vendor\bin;C:\Users\I055463\AppData\Local\Microsoft\WindowsApps
+13 verbose lifecycle reduxboilergen@1.1.0~prepublish: CWD: C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator
+14 silly lifecycle reduxboilergen@1.1.0~prepublish: Args: [ '/d /s /c', 'npm run build' ]
+15 silly lifecycle reduxboilergen@1.1.0~prepublish: Returned: code: 0  signal: null
+16 verbose tar pack [ 'C:\\Users\\I055463\\AppData\\Roaming\\npm-cache\\reduxboilergen\\1.1.0\\package.tgz',
+16 verbose tar pack   'C:\\Sourav Data\\Stuff\\SPROJ\\ReduxBoilerGenerator' ]
+17 verbose tarball C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package.tgz
+18 verbose folder C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator
+19 verbose addLocalTarball adding from inside cache C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package.tgz
+20 verbose correctMkdir C:\Users\I055463\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+21 silly cache afterAdd reduxboilergen@1.1.0
+22 verbose afterAdd C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package\package.json not in flight; writing
+23 verbose correctMkdir C:\Users\I055463\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+24 verbose afterAdd C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package\package.json written
+25 silly publish { name: 'reduxboilergen',
+25 silly publish   version: '1.1.0',
+25 silly publish   description: 'Generated Boiler Plate Code for React-Redux. This can be used when you have API calls that needs to have an Request, Response, Error states during different lifecyle of the API call. This is a Command Line tool which will generate the Boiler Plate pattern for your case.',
+25 silly publish   preferGlobal: true,
+25 silly publish   repository:
+25 silly publish    { type: 'git',
+25 silly publish      url: 'git+https://github.com/chattes/reduxboilergenerator.git' },
+25 silly publish   bin: { boilredux: 'build\\index.js' },
+25 silly publish   scripts:
+25 silly publish    { test: 'jest',
+25 silly publish      build: 'babel src -d build',
+25 silly publish      dev: 'watch "npm run build" src',
+25 silly publish      'test:watch': 'npm test -- --watch',
+25 silly publish      prepublish: 'npm run build',
+25 silly publish      release: 'np' },
+25 silly publish   babel: { presets: [ 'latest' ] },
+25 silly publish   keywords: [ 'react-redux' ],
+25 silly publish   author: { name: 'Sourav Chatterjee' },
+25 silly publish   license: 'MIT',
+25 silly publish   dependencies: { 'fs-path': '0.0.23', promptly: '^2.2.0', ramda: '^0.25.0' },
+25 silly publish   devDependencies:
+25 silly publish    { 'babel-cli': '^6.26.0',
+25 silly publish      'babel-preset-latest': '^6.24.1',
+25 silly publish      jest: '^22.4.2',
+25 silly publish      np: '^2.20.1',
+25 silly publish      prettier: '^1.11.1',
+25 silly publish      watch: '^1.0.1' },
+25 silly publish   readme: '## About\r\n\r\n\r\nIf you have used Redux in your Project, you must be aware that common convention is\r\nto have a Reducers Folder which contains all your Reducers.\r\nYou also should be having an Actions folder with atleast two file.\r\n\r\n* Action File\r\n* Action Type File\r\n\r\nUsually you have to have 3 actions for any API calls\r\n\r\n* `<ACTION>_REQ`\r\n* `<ACTION>_RES`\r\n* `<ACTION>_ERROR`\r\n\r\nThat is a lot of Boiler Plate that needs to be written for every API that you want to call\r\nand get the Data.\r\n\r\n**reduxboilergenerator** provides you with a Command Line utility to generate this and arranges\r\nin the following file structure.\r\n\r\n```\r\n--Actions\r\n  --<actionname>Actions.js\r\n  --<actionname>ActionType.js\r\n--reducers\r\n  --<actionname>Reducers\r\n  --index.js\r\n```\r\n\r\n![alt text](https://media.giphy.com/media/8Flt5u1QxYpbFeMSUH/giphy.gif)\r\n\r\nIt will generate the common boiler plate code for you and then you just fill up the rest according to your \r\nrequirements.\r\n\r\nCurrently the boiler plate expects `jquery` and makes an `xhr` request and does not use `Fetch`.\r\nFeel free to submit a pull request or raise Issues, if you see any shortcomings!\r\n\r\n### HAPPY BOILING!!\r\n\r\n## Example\r\n\r\n```\r\n$ npm install -g reduxboilergen\r\n```\r\n\r\n## Usage\r\n\r\nIn Command Line type the Command and follow along the Prompts\r\n\r\n```\r\n$ boilredux\r\n```\r\n',
+25 silly publish   readmeFilename: 'README.md',
+25 silly publish   gitHead: '764aa126ad9d63c2c2ae44d731f243cd5a88083c',
+25 silly publish   bugs: { url: 'https://github.com/chattes/reduxboilergenerator/issues' },
+25 silly publish   homepage: 'https://github.com/chattes/reduxboilergenerator#readme',
+25 silly publish   _id: 'reduxboilergen@1.1.0',
+25 silly publish   _shasum: '48def0dad6164191864de4806cbea9814ad003e0',
+25 silly publish   _from: '.' }
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name reduxboilergen
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'reduxboilergen',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'reduxboilergen',
+30 silly mapToRegistry   name: 'reduxboilergen',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/reduxboilergen
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading C:\Users\I055463\AppData\Roaming\npm-cache\reduxboilergen\1.1.0\package.tgz
+34 verbose request uri https://registry.npmjs.org/reduxboilergen
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 9:50:05 PM
+37 verbose request using bearer token for auth
+38 verbose request id 847fcc2936240282
+39 http request PUT https://registry.npmjs.org/reduxboilergen
+40 http 403 https://registry.npmjs.org/reduxboilergen
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '93',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Tue, 06 Mar 2018 16:20:06 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-sin18026-SIN',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1520353206.508412,VS0,VE1395',
+41 verbose headers   vary: 'Accept-Encoding, Accept' }
+42 verbose request invalidating C:\Users\I055463\AppData\Roaming\npm-cache\registry.npmjs.org\reduxboilergen on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: You cannot publish over the previously published versions: 1.1.0. : reduxboilergen
+44 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:302:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:290:14)
+44 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:210:14)
+44 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:187:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:191:7)
+44 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1044:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:188:7)
+44 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:965:12)
+45 verbose statusCode 403
+46 verbose pkgid reduxboilergen
+47 verbose cwd C:\Sourav Data\Stuff\SPROJ\ReduxBoilerGenerator
+48 error Windows_NT 10.0.14393
+49 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+50 error node v6.9.1
+51 error npm  v3.10.8
+52 error code E403
+53 error You cannot publish over the previously published versions: 1.1.0. : reduxboilergen
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
