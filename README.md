@@ -26,7 +26,7 @@ in the following file structure.
   --<actionname>ActionType.js
 --reducers
   --<actionname>Reducers
-  --index.js
+    --index.js
 ```
 
 ![alt text](https://media.giphy.com/media/8Flt5u1QxYpbFeMSUH/giphy.gif)
