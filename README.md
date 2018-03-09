@@ -14,11 +14,11 @@ Usually you have to have 3 actions for any API calls
 * `<ACTION>_RES`
 * `<ACTION>_ERROR`
 
-That is a lot of Boiler Plate that needs to be written for every API that you want to call
-and get the Data.
+That is a lot of Boiler Plate for every API Calls.
 
-**reduxboilergenerator** provides you with a Command Line utility to generate this and arranges
-in the following file structure.
+**reduxboilergenerator** provides you with a Command Line utility to generate this boiler plate so that you quickly get to the core logic.
+
+There are 3 files and 2 folder generated.
 
 ```
 --Actions
@@ -34,7 +34,7 @@ in the following file structure.
 It will generate the common boiler plate code for you and then you just fill up the rest according to your 
 requirements.
 
-Currently the boiler plate expects `jquery` and makes an `xhr` request and does not use `Fetch`.
+Currently the boiler plate uses `jquery` and makes an `xhr` request and does not use `Fetch` or `Axios`.
 Feel free to submit a pull request or raise Issues, if you see any shortcomings!
 
 ### HAPPY BOILING!!
