@@ -29,7 +29,7 @@ There are 3 files and 2 folder generated.
     --index.js
 ```
 
-![alt text](https://media.giphy.com/media/8Flt5u1QxYpbFeMSUH/giphy.gif)
+![alt text](https://www.dropbox.com/s/hpnq27rv47m1eh6/reduxboiler.gif?dl=0)
 
 It will generate the common boiler plate code for you and then you just fill up the rest according to your 
 requirements.
