@@ -29,7 +29,7 @@ There are 3 files and 2 folder generated.
     --index.js
 ```
 
-![alt text](https://im.ezgif.com/tmp/ezgif-1-58f530d898.gif)
+![alt text](https://i.imgur.com/lgXZFWR.gif)
 
 It will generate the common boiler plate code for you and then you just fill up the rest according to your 
 requirements.
