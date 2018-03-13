@@ -8,7 +8,7 @@
     "url": "https://github.com/chattes/reduxboilergenerator"
   },
   "bin": {
-    "boilredux": "build\\index.js"
+    "boilredux": "build/index.js"
   },
   "scripts": {
     "test": "jest",
