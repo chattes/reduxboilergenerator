@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "fs-path": "0.0.23",
+    "prettier": "^1.11.1",
     "promptly": "^2.2.0",
     "ramda": "^0.25.0"
   },
@@ -38,7 +39,6 @@
     "babel-preset-latest": "^6.24.1",
     "jest": "^22.4.2",
     "np": "^2.20.1",
-    "prettier": "^1.11.1",
     "watch": "^1.0.1"
   }
 }
