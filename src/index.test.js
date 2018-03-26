@@ -1,4 +1,4 @@
-import { convCamelCase, GetActionFilePath, GenActionFileContents, reducerFilePath, genReducerCode } from './utils'
+import { convCamelCase, GetActionFilePath, GenActionFileContents, reducerFilePath, genReducerCode, CapitalizeFirst } from './utils'
 
 test('Test conversion from snake_case to CamelCase', 
 () => (
@@ -11,6 +11,16 @@ test('Test conversion from snake_case to CamelCase- Capitalize',
 )
 )
 
+test('Test Capitalize the First Letter', 
+() => (
+  expect(CapitalizeFirst('testcase')).toBe('Testcase')  
+)
+)
+test('Test Capitalize the First Letter - II', 
+() => (
+  expect(CapitalizeFirst('testCase')).toBe('Testcase')  
+)
+)
 test('Test Action File Contents---Existing File', () => (
   expect(
   GenActionFileContents({

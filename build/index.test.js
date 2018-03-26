@@ -9,6 +9,12 @@ test('Test conversion from snake_case to CamelCase- Capitalize', function () {
   return expect((0, _utils.convCamelCase)('TEST_CASE')).toBe('testCase');
 });
 
+test('Test Capitalize the First Letter', function () {
+  return expect((0, _utils.CapitalizeFirst)('testcase')).toBe('Testcase');
+});
+test('Test Capitalize the First Letter - II', function () {
+  return expect((0, _utils.CapitalizeFirst)('testCase')).toBe('Testcase');
+});
 test('Test Action File Contents---Existing File', function () {
   return expect((0, _utils.GenActionFileContents)({
     reducerName: 'Conference',

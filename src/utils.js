@@ -4,6 +4,16 @@ const fs = require("fs")
 const path = require("path")
 const fsPath  = require('fs-path')
 const R = require('ramda')
+// Captitalize First Letter
+export const CapitalizeFirst = word => (
+       word.
+       slice(0,1).
+      toUpperCase().
+      concat(
+        word.slice(1).toLowerCase()
+      )
+  
+)
 // Utility - Convert Under_Score to camelCase
 export const convCamelCase = actionName => {
   return actionName
@@ -24,7 +34,7 @@ export const getActionTypePath = ({reducerName}) => (
   path.join(
     process.cwd(),
     'Actions',
-    `${reducerName.toLowerCase()}ActionType.js`
+    `${CapitalizeFirst(reducerName)}ActionType.js`
   ) 
 )
 
@@ -62,7 +72,7 @@ export const GetActionFilePath = ({ reducerName,
   path.join(
   currentDir,
   'Actions',
-  `${reducerName.toLowerCase()}Actions.js`
+  `${CapitalizeFirst(reducerName)}Actions.js`
 )
 )
 
@@ -79,7 +89,7 @@ export const GenActionFileContents = ({
   let actionNameL = actionName.toLowerCase()
   let headerCode = `
   import $ from 'jquery'
-  import { ${reducerName.toLowerCase()}ActionType } from './${reducerName.toLowerCase()}ActionType'
+  import { ${CapitalizeFirst(reducerName)}ActionType } from './${CapitalizeFirst(reducerName)}ActionType'
   
   
   const TIMEOUT = 5000
@@ -261,7 +271,7 @@ export const reducerFilePath =
   path.join(
     currentDir,
     'Reducers',
-    `${reducerName.toLowerCase()}Reducers`,
+    `${CapitalizeFirst(reducerName)}Reducers`,
     'index.js'
   )  
 )
@@ -285,7 +295,7 @@ if(fileContent !== null ){
 
 } else {
   reducerCode = `
-  import { ${reducerName.toLowerCase()}ActionType as Actions } from '../../Actions/${reducerName.toLowerCase()}ActionType'  
+  import { ${CapitalizeFirst(reducerName)}ActionType as Actions } from '../../Actions/${CapitalizeFirst(reducerName)}ActionType'  
   
     export const ${reducerName.toLowerCase()}Reducers = (
       state = {},  //Some Default State Needs to be passed here

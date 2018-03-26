@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.reducerCommonCode = exports.genReducerCode = exports.reducerFilePath = exports.GenActionFileContents = exports.GetActionFilePath = exports.GenActionTypeFile = exports.getActionTypePath = exports.convCamelCase = undefined;
+exports.reducerCommonCode = exports.genReducerCode = exports.reducerFilePath = exports.GenActionFileContents = exports.GetActionFilePath = exports.GenActionTypeFile = exports.getActionTypePath = exports.convCamelCase = exports.CapitalizeFirst = undefined;
 
 var _fs = require("fs");
 
@@ -13,6 +13,10 @@ var fs = require("fs");
 var path = require("path");
 var fsPath = require('fs-path');
 var R = require('ramda');
+// Captitalize First Letter
+var CapitalizeFirst = exports.CapitalizeFirst = function CapitalizeFirst(word) {
+  return word.slice(0, 1).toUpperCase().concat(word.slice(1).toLowerCase());
+};
 // Utility - Convert Under_Score to camelCase
 var convCamelCase = exports.convCamelCase = function convCamelCase(actionName) {
   return actionName.split("_").map(function (word, index) {
@@ -28,7 +32,7 @@ var convCamelCase = exports.convCamelCase = function convCamelCase(actionName) {
 // Get ActionType File Path
 var getActionTypePath = exports.getActionTypePath = function getActionTypePath(_ref) {
   var reducerName = _ref.reducerName;
-  return path.join(process.cwd(), 'Actions', reducerName.toLowerCase() + "ActionType.js");
+  return path.join(process.cwd(), 'Actions', CapitalizeFirst(reducerName) + "ActionType.js");
 };
 
 // Return Action -Type File Contents String, String -> String
@@ -56,7 +60,7 @@ var GetActionFilePath = exports.GetActionFilePath = function GetActionFilePath(_
   var reducerName = _ref3.reducerName,
       _ref3$currentDir = _ref3.currentDir,
       currentDir = _ref3$currentDir === undefined ? process.cwd() : _ref3$currentDir;
-  return path.join(currentDir, 'Actions', reducerName.toLowerCase() + "Actions.js");
+  return path.join(currentDir, 'Actions', CapitalizeFirst(reducerName) + "Actions.js");
 };
 
 // Action File Contents Object -> String
@@ -71,7 +75,7 @@ var GenActionFileContents = exports.GenActionFileContents = function GenActionFi
 
 
   var actionNameL = actionName.toLowerCase();
-  var headerCode = "\n  import $ from 'jquery'\n  import { " + reducerName.toLowerCase() + "ActionType } from './" + reducerName.toLowerCase() + "ActionType'\n  \n  \n  const TIMEOUT = 5000\n  ";
+  var headerCode = "\n  import $ from 'jquery'\n  import { " + CapitalizeFirst(reducerName) + "ActionType } from './" + CapitalizeFirst(reducerName) + "ActionType'\n  \n  \n  const TIMEOUT = 5000\n  ";
   var actionCode = "\n  export const " + actionNameL + "Req = ({" + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_REQ,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Res = ({payload, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_RES,\n    payload,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })\n  export const " + actionNameL + "Err = ({error, " + [].concat(_toConsumableArray(parameters)) + "}) => ({\n    type: " + reducerName.toLowerCase() + "ActionType." + actionName + "_ERR,\n    error,\n    " + [].concat(_toConsumableArray(parameters)) + "\n  })  \n  ";
   var apiCode = "";
   switch (crudOperation) {
@@ -100,7 +104,7 @@ var reducerFilePath = exports.reducerFilePath = function reducerFilePath(_ref5) 
   var reducerName = _ref5.reducerName,
       _ref5$currentDir = _ref5.currentDir,
       currentDir = _ref5$currentDir === undefined ? process.cwd() : _ref5$currentDir;
-  return path.join(currentDir, 'Reducers', reducerName.toLowerCase() + "Reducers", 'index.js');
+  return path.join(currentDir, 'Reducers', CapitalizeFirst(reducerName) + "Reducers", 'index.js');
 };
 
 var genReducerCode = exports.genReducerCode = function genReducerCode(_ref6) {
@@ -116,7 +120,7 @@ var genReducerCode = exports.genReducerCode = function genReducerCode(_ref6) {
     var delimiter = fileContent.indexOf('default:');
     reducerCode = [fileContent.slice(0, delimiter), reducerCommonCode({ reducerName: reducerName, actionName: actionName }), fileContent.slice(delimiter)].join("");
   } else {
-    reducerCode = "\n  import { " + reducerName.toLowerCase() + "ActionType as Actions } from '../../Actions/" + reducerName.toLowerCase() + "ActionType'  \n  \n    export const " + reducerName.toLowerCase() + "Reducers = (\n      state = {},  //Some Default State Needs to be passed here\n      action\n    ) => {\n      let newState = null\n      let payload = null\n  \n      switch(action.type) {\n  \n    " + reducerCommonCode({
+    reducerCode = "\n  import { " + CapitalizeFirst(reducerName) + "ActionType as Actions } from '../../Actions/" + CapitalizeFirst(reducerName) + "ActionType'  \n  \n    export const " + reducerName.toLowerCase() + "Reducers = (\n      state = {},  //Some Default State Needs to be passed here\n      action\n    ) => {\n      let newState = null\n      let payload = null\n  \n      switch(action.type) {\n  \n    " + reducerCommonCode({
       reducerName: reducerName,
       actionName: actionName
     }) + "\n   \n        default:\n        return state\n      }\n    }\n     \n  ";
