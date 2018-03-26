@@ -1,6 +1,6 @@
 {
   "name": "reduxboilergen",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Generated Boiler Plate Code for React-Redux. This can be used when you have API calls that needs to have an Request, Response, Error states during different lifecyle of the API call. This is a Command Line tool which will generate the Boiler Plate pattern for your case.",
   "preferGlobal": true,
   "repository": {
